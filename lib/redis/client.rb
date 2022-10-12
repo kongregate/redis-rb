@@ -120,6 +120,7 @@ class Redis
     end
 
     def call(command)
+      puts ">>>>>> Call Command: #{command.inspect}"
       reply = process([command]) { read }
       raise reply if reply.is_a?(CommandError)
 
