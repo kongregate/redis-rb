@@ -47,6 +47,7 @@ class Redis
   end
 
   def synchronize
+    puts ">>>> synchronize"
     mon_synchronize { yield(@client) }
   end
 
@@ -82,6 +83,7 @@ class Redis
   #
   # Redis error replies are raised as Ruby exceptions.
   def call(*command)
+    puts ">>>> redis call command: #{command.inspect}"
     synchronize do |client|
       client.call(command)
     end
