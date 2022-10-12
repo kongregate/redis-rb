@@ -47,7 +47,7 @@ class Redis
   end
 
   def synchronize
-    puts ">>>> synchronize"
+    puts ">>>> synchronize: #{@client.inspect}"
     mon_synchronize { yield(@client) }
   end
 
